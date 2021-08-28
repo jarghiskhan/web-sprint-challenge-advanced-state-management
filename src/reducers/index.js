@@ -1,43 +1,43 @@
-import {LOADING, LOADED, ADD_SMURF, FAILED_GET, ERROR} from '../actions'
+import { LOADING, LOADED, ADD_SMURF, FAILED_GET, ERROR } from "../actions";
 
 export const initialState = {
-    smurfs: [],
-    isLoading: false,
-    errors: '',
-}
+  smurfs: [],
+  isLoading: false,
+  errors: "",
+};
 
-const reducer = (state = initialState, action) =>{
-    switch (action.type) {
-        case LOADING:
-            return{
-                ...state, 
-                isLoading: true
-            }
-        case LOADED:
-            return{
-                ...state,
-                isLoading: false,
-                smurfs: action.payload
-            }
-        case FAILED_GET:
-            return{
-                ...state,
-                errors: action.payload
-            }
-        case ADD_SMURF:
-            return{
-                ...state,
-                smurfs:[...state.smurfs, action.payload]
-            }
-        case ERROR:
-            return{
-                ...state,
-                error: action.payload
-            }
-        default:
-           return state
-    }
-}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case LOADED:
+      return {
+        ...state,
+        isLoading: false,
+        smurfs: action.payload,
+      };
+    case FAILED_GET:
+      return {
+        ...state,
+        errors: action.payload,
+      };
+    case ADD_SMURF:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+      };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
