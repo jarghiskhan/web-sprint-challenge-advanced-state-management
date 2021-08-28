@@ -1,8 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import "./index.css";
 import App from "./App";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import { Provider } from "react-redux"
+import { createStore, applyMiddleware } from "redux";
+import reducer from "./reducers"
+
+const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 const { worker } = require('./mocks/browser');
 worker.start();
