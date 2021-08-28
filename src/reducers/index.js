@@ -19,6 +19,21 @@ const reducer = (state = initialState, action) =>{
                 isLoading: false,
                 smurfs: action.payload
             }
+        case FAILED_GET:
+            return{
+                ...state,
+                errors: action.payload
+            }
+        case ADD_SMURF:
+            return{
+                ...state,
+                smurfs:[...state.smurfs, action.payload]
+            }
+        case ERROR:
+            return{
+                ...state,
+                error: action.payload
+            }
         default:
            return state
     }
