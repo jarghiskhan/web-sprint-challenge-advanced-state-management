@@ -1,13 +1,24 @@
-import Switch from "react-bootstrap/esm/Switch";
+import {LOADING, LOADED, ADD_SMURF, FAILED_GET, ERROR} from '../actions'
 
 export const initialState = {
-    smurfsArray: [],
+    smurfs: [],
     isLoading: false,
     errors: '',
 }
 
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
+        case LOADING:
+            return{
+                ...state, 
+                isLoading: true
+            }
+        case LOADED:
+            return{
+                ...state,
+                isLoading: false,
+                smurfs: action.payload
+            }
         default:
            return state
     }
