@@ -1,5 +1,8 @@
 
 export const initialState = {
+    smurfsArray: [],
+    isLoading: false,
+    errors: '',
 }
 
 const reducer = ()=>{
